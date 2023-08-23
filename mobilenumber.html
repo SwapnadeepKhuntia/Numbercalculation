@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div input{
+            font-size: 18px;
+            height: 30px;
+            width: 300px;
+        }
+        div button{
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1> Any Number ( first 3 digit*80+1)*250+Last 4 digit+Last 4 digit-250</h1>
+        <input type="number" placeholder="First calculation Number" id="firstnum"><br>
+        <h1> Any Number ( next 3 digit*80+1)*250+Last 4 digit+Last 4 digit-250</h1>
+        <input type="number" placeholder="Last calculation Number" id="lastnum"><br><br>
+        <button type="submit" id="button">Button</button><br><br><br>
+        <input type="number" id="display" readonly>
+    </div>
+
+    <script>
+          let firstnum=document.getElementById("firstnum");
+          let lastnum=document.getElementById("lastnum");
+          let button=document.getElementById("button");
+          let display=document.getElementById("display");
+         
+
+          button.addEventListener("click",function()
+          {
+            let first = firstnum.value/2;
+            let last = lastnum.value/2;
+
+            let firstst=first.toString();
+            let firstarrayfrom=Array.from(firstst)
+            let firsto=firstarrayfrom.slice(0,3);
+            console.log(firsto);
+
+            let lastst=last.toString();
+            let lastarrayfrom=Array.from(lastst);
+            console.log(lastarrayfrom);
+
+            let firstoutput=firsto.join('');
+            let lasroutput =lastarrayfrom.join('');
+
+            display.value=firstoutput+lasroutput;
+
+
+          })
+
+    </script>
+</body>
+</html>
